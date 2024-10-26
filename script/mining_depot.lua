@@ -70,10 +70,10 @@ end
 
 local custom_drop_offsets =
 {
-  [0] = {0, 0.5},
-  [2] = {0, 0.5},
-  [4] = {0, -0.5},
-  [6] = {0, 0.5},
+  [defines.direction.north] = {0, 0.5},
+  [defines.direction.east] = {0, 0.5},
+  [defines.direction.south] = {0, -0.5},
+  [defines.direction.west] = {0, 0.5},
 }
 
 function mining_depot:get_drop_offset()
@@ -1158,9 +1158,8 @@ local reset_all_depots = function()
   rescan_all_depots()
 end
 
-local entity_type = defines.events.on_entity_died
 local on_object_destroyed = function(event)
-  if event.type ~= entity_type then return end
+  if event.type ~= defines.target_type.entity then return end
   local unit_number = event.useful_id
   local bucket = script_data.depots[unit_number % depot_update_rate]
   if not bucket then return end
