@@ -136,7 +136,9 @@ end
 
 local should_glow =
 {
-  ["uranium-ore"] = true
+  ["uranium-ore"] = true,
+  ["tiberium-ore"] = true,
+  ["tiberium-ore-blue"] = true
 }
 
 local make_pot = function(name, tint, direction, custom)
