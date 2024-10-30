@@ -579,6 +579,7 @@ mining_drone.events =
 
   [defines.events.on_player_mined_entity] = on_entity_removed,
   [defines.events.on_robot_mined_entity] = on_entity_removed,
+  [defines.events.on_space_platform_mined_entity] = on_entity_removed,
 
   [defines.events.on_entity_died] = on_entity_removed,
   [defines.events.script_raised_destroy] = on_entity_removed,
@@ -617,7 +618,7 @@ mining_drone.on_configuration_changed = function()
   if not script_data.fix_inventories then
     script_data.fix_inventories = true
 
-    for mod_name, inventories in pairs(game.get_script_inventories("Mining_Drones")) do
+    for mod_name, inventories in pairs(game.get_script_inventories("Mining-Drones-Tiberium")) do
       for k, inventory in pairs(inventories) do
         inventory.destroy()
       end
