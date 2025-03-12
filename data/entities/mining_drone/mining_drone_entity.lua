@@ -158,15 +158,7 @@ local make_drone = function(name, tint, item)
       }
     },
     running_sound_animation_positions = {5, 16},
-    walking_sound = sound_enabled and
-    {
-      aggregation =
-      {
-        max_count = 2,
-        remove = true
-      },
-      variations = sound
-    } or nil
+    walking_sound = sound_enabled and sound or nil
   }
 --error(serpent.block(base.animations[1].running))
 
@@ -180,6 +172,7 @@ local make_drone = function(name, tint, item)
   corpse.selection_box = nil
   corpse.render_layer = "remnants"
   corpse.order = "zzz-"..bot_name
+  corpse.time_to_live = 60 * 60 * 5
 
 
   data:extend
